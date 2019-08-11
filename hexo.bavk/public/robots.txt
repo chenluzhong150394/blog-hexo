@@ -1,0 +1,2 @@
+Sitemap: http://blog.clz.cloud/sitemap.xml
+Sitemap: http://blog.clz.cloud/baidusitemap.xml

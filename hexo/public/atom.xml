@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.clz.cloud/"/>
-  <updated>2019-08-10T17:18:04.135Z</updated>
+  <updated>2019-08-10T17:17:50.681Z</updated>
   <id>https://blog.clz.cloud/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Shadowsocet配置多端口</title>
-    <link href="https://blog.clz.cloud/2019/08/10/shadowscoket%20%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%AB%AF%E5%8F%A3%20(%E9%9C%80%E8%A6%81%E9%85%8D%E7%BD%AE%E9%98%B2%E7%81%AB%E5%A2%99)/"/>
-    <id>https://blog.clz.cloud/2019/08/10/shadowscoket 配置多端口 (需要配置防火墙)/</id>
-    <published>2019-08-10T05:52:50.000Z</published>
-    <updated>2019-08-10T17:18:04.135Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="shadowscoket-配置多端口-需要配置防火墙"><a href="#shadowscoket-配置多端口-需要配置防火墙" class="headerlink" title="shadowscoket 配置多端口 (需要配置防火墙)"></a>shadowscoket 配置多端口 (需要配置防火墙)</h2><p>先将要设置的端口在firewall防火墙放行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=52300/tcp --permanent  </span><br><span class="line">firewall-cmd --zone=public --add-port=52300/udp --permanent</span><br></pre></td></tr></table></figure><p>查看firewall 开放的所有端口</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure><p>然后去将原来的shadowscoket配置文件进行备份</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp  /etc/shadowsocks.json  /etc/shadowsocks.json.bak</span><br></pre></td></tr></table></figure><p>然后打开配置文件替换成以下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim   /etc/shadowsocks.json</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;server&quot;:&quot;0.0.0.0&quot;,</span><br><span class="line">&quot;local_address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">&quot;local_port&quot;:1080,</span><br><span class="line">&quot;port_password&quot;:&#123;</span><br><span class="line">&quot;52300&quot;:&quot;chenshuo003&quot;,</span><br><span class="line">&quot;52500&quot;:&quot;chenshuo003&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;obfs&quot;:&quot;plain&quot;,</span><br><span class="line">&quot;obfs_param&quot;:&quot;&quot;,</span><br><span class="line">&quot;timeout&quot;:300,</span><br><span class="line">&quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line">&quot;fast_open&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后重启shadowsocket服务并查看状态</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 重启服务</span><br><span class="line">/etc/init.d/shadowsocks restart</span><br><span class="line">## 查看服务状态</span><br><span class="line">/etc/init.d/shadowsocks status</span><br></pre></td></tr></table></figure><p>重启锐速</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## 重启锐速</span><br><span class="line">service serverSpeeder restart</span><br><span class="line"></span><br><span class="line">##查看锐速状态</span><br><span class="line">service serverSpeeder status</span><br></pre></td></tr></table></figure><h4 id="查看当前端口有多少IP链接-脚本有后台-需要手动禁止ip–hosts-deny"><a href="#查看当前端口有多少IP链接-脚本有后台-需要手动禁止ip–hosts-deny" class="headerlink" title="查看当前端口有多少IP链接(脚本有后台,需要手动禁止ip–hosts.deny)"></a>查看当前端口有多少IP链接(脚本有后台,需要手动禁止ip–hosts.deny)</h4><hr><p>使用netstat 命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp |  grep 52300</span><br></pre></td></tr></table></figure><p>找到链接的ip,只要不是自己的,全部禁了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">### 打开hosts.deny文件</span><br><span class="line">vim /etc/hosts.deny </span><br><span class="line">### 将想要禁止的ip添加上去</span><br><span class="line">125.23.223.2</span><br></pre></td></tr></table></figure><p>然后重启网卡服务,使hosts.deny文件生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;shadowscoket-配置多端口-需要配置防火墙&quot;&gt;&lt;a href=&quot;#shadowscoket-配置多端口-需要配置防火墙&quot; class=&quot;headerlink&quot; title=&quot;shadowscoket 配置多端口 (需要配置防火墙)&quot;&gt;&lt;/a&gt;shadow
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://blog.clz.cloud/categories/Linux/"/>
-    
-    
-      <category term="Shadowsocet" scheme="https://blog.clz.cloud/tags/Shadowsocet/"/>
-    
-  </entry>
   
   <entry>
     <title>Git的安装及常用操作</title>
@@ -63,6 +38,31 @@
     
     
       <category term="git操作" scheme="https://blog.clz.cloud/tags/git%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shadowsocet配置多端口</title>
+    <link href="https://blog.clz.cloud/2019/08/10/shadowscoket%20%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%AB%AF%E5%8F%A3%20(%E9%9C%80%E8%A6%81%E9%85%8D%E7%BD%AE%E9%98%B2%E7%81%AB%E5%A2%99)/"/>
+    <id>https://blog.clz.cloud/2019/08/10/shadowscoket 配置多端口 (需要配置防火墙)/</id>
+    <published>2019-08-10T05:52:50.000Z</published>
+    <updated>2019-08-10T17:18:04.135Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="shadowscoket-配置多端口-需要配置防火墙"><a href="#shadowscoket-配置多端口-需要配置防火墙" class="headerlink" title="shadowscoket 配置多端口 (需要配置防火墙)"></a>shadowscoket 配置多端口 (需要配置防火墙)</h2><p>先将要设置的端口在firewall防火墙放行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=52300/tcp --permanent  </span><br><span class="line">firewall-cmd --zone=public --add-port=52300/udp --permanent</span><br></pre></td></tr></table></figure><p>查看firewall 开放的所有端口</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure><p>然后去将原来的shadowscoket配置文件进行备份</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp  /etc/shadowsocks.json  /etc/shadowsocks.json.bak</span><br></pre></td></tr></table></figure><p>然后打开配置文件替换成以下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim   /etc/shadowsocks.json</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;server&quot;:&quot;0.0.0.0&quot;,</span><br><span class="line">&quot;local_address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">&quot;local_port&quot;:1080,</span><br><span class="line">&quot;port_password&quot;:&#123;</span><br><span class="line">&quot;52300&quot;:&quot;chenshuo003&quot;,</span><br><span class="line">&quot;52500&quot;:&quot;chenshuo003&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;obfs&quot;:&quot;plain&quot;,</span><br><span class="line">&quot;obfs_param&quot;:&quot;&quot;,</span><br><span class="line">&quot;timeout&quot;:300,</span><br><span class="line">&quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line">&quot;fast_open&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后重启shadowsocket服务并查看状态</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 重启服务</span><br><span class="line">/etc/init.d/shadowsocks restart</span><br><span class="line">## 查看服务状态</span><br><span class="line">/etc/init.d/shadowsocks status</span><br></pre></td></tr></table></figure><p>重启锐速</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## 重启锐速</span><br><span class="line">service serverSpeeder restart</span><br><span class="line"></span><br><span class="line">##查看锐速状态</span><br><span class="line">service serverSpeeder status</span><br></pre></td></tr></table></figure><h4 id="查看当前端口有多少IP链接-脚本有后台-需要手动禁止ip–hosts-deny"><a href="#查看当前端口有多少IP链接-脚本有后台-需要手动禁止ip–hosts-deny" class="headerlink" title="查看当前端口有多少IP链接(脚本有后台,需要手动禁止ip–hosts.deny)"></a>查看当前端口有多少IP链接(脚本有后台,需要手动禁止ip–hosts.deny)</h4><hr><p>使用netstat 命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp |  grep 52300</span><br></pre></td></tr></table></figure><p>找到链接的ip,只要不是自己的,全部禁了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">### 打开hosts.deny文件</span><br><span class="line">vim /etc/hosts.deny </span><br><span class="line">### 将想要禁止的ip添加上去</span><br><span class="line">125.23.223.2</span><br></pre></td></tr></table></figure><p>然后重启网卡服务,使hosts.deny文件生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;shadowscoket-配置多端口-需要配置防火墙&quot;&gt;&lt;a href=&quot;#shadowscoket-配置多端口-需要配置防火墙&quot; class=&quot;headerlink&quot; title=&quot;shadowscoket 配置多端口 (需要配置防火墙)&quot;&gt;&lt;/a&gt;shadow
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://blog.clz.cloud/categories/Linux/"/>
+    
+    
+      <category term="Shadowsocet" scheme="https://blog.clz.cloud/tags/Shadowsocet/"/>
     
   </entry>
   

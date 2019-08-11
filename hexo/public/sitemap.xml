@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.clz.cloud/tags/index.html</loc>
+    
+    <lastmod>2019-08-11T18:42:50.999Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.clz.cloud/about/index.html</loc>
+    
+    <lastmod>2019-08-11T18:28:20.527Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.clz.cloud/googlea28ffae42df3c06e.html</loc>
     
     <lastmod>2019-08-11T10:55:33.477Z</lastmod>
@@ -65,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://blog.clz.cloud/2019/07/06/websocket%E7%BF%BB%E8%AF%91/</loc>
+    <loc>https://blog.clz.cloud/2019/07/06/celery%E4%B8%AD%E5%81%9C%E6%AD%A2%E6%89%A7%E8%A1%8Ctask/</loc>
     
     <lastmod>2019-08-10T03:21:14.317Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.clz.cloud/2019/07/06/celery%E4%B8%AD%E5%81%9C%E6%AD%A2%E6%89%A7%E8%A1%8Ctask/</loc>
+    <loc>https://blog.clz.cloud/2019/07/06/websocket%E7%BF%BB%E8%AF%91/</loc>
     
     <lastmod>2019-08-10T03:21:14.317Z</lastmod>
     

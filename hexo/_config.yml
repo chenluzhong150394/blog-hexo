@@ -95,3 +95,23 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+
+
+
+
+# hexo-tag-cloud
+tag_cloud:
+    textFont: Trebuchet MS, Helvetica
+    textColor: '#FF0000'
+    textHeight: 25
+    outlineColor: '#E2E1D1'
+    maxSpeed: 0.1
+
+
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
