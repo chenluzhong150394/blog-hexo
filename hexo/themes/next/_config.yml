@@ -166,6 +166,10 @@ menu:
   #schedule: /schedule/ || calendar
   sitemap: /sitemap.xml || sitemap
   #commonweal: /404.html || heartbeat
+  message: /message || envelope
+
+
+
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -546,7 +550,7 @@ quicklink:
   home: true
   archive: true
 
-  # Default (true) will initialize quicklink after the load event fires
+  # Default (true) will initialize quicklinenvelope-altk after the load event fires
   delay: true
   # Custom a time in milliseconds by which the browser must execute prefetching
   timeout: 3000
