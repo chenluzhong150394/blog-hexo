@@ -267,8 +267,8 @@ sidebar:
   #  - always  expand for all pages automatically.
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  totally remove sidebar including sidebar toggle.
-  display: always
-
+  #display: always
+  display: post
   # Sidebar offset from top menubar in pixels (only for Pisces | Gemini).
   offset: 12
   # Enable sidebar on narrow view (only for Muse | Mist).
@@ -641,7 +641,7 @@ valine:
   notify: false # mail notifier, See: https://github.com/xCss/Valine/wiki
   verify: false # Verification code
   placeholder: 看了这么久，你不想说两句吗？ # comment box placeholder
-  avatar: mm # gravatar style
+  avatar: wavatar # gravatar style这是评论系统的头像
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
   language: zh-cn # language, available values: en, zh-cn
@@ -1168,7 +1168,7 @@ vendors:
   # likely
   # See: https://github.com/ilyabirman/Likely
   # Example:
-  # likely_js: //cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.js
+  # likely_js: //cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.jsbutton-toggle-bg"
   # likely_css: //cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.css
   likely_js:
   likely_css:
@@ -1185,6 +1185,11 @@ vendors:
 css: css
 js: js
 images: images
+
+
+
+daovoice: true
+daovoice_app_id: 449f2ce5
 
 
 
