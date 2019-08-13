@@ -5,7 +5,7 @@
 #}&copy; {% if theme.footer.since and theme.footer.since != current %}{{ theme.footer.since }} – {% endif %}{#
 #}<span itemprop="copyrightYear">{{ current }}</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-{{ theme.footer.icon.name }}"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright || author }}</span>
 
@@ -80,16 +80,19 @@
     <span class="site-uv">
       <i class="fa fa-user"></i>
       访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+	<span>&nbsp;</span>
     </span>
     <div class="powered-by"></div>
     <span class="site-uv">
       <i class="fa fa-eye"></i>
       访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+	<span>&nbsp;</span>
     </span>
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
       博客全站共： <span class="post-count">{{ totalcount(site) }}</span> 字
+	<span>&nbsp;</span>
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

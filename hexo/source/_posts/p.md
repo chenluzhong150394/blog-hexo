@@ -3,6 +3,7 @@ title: centos安装python3时候的坑
 date: 2019-08-12 12:22:00
 tags: linux
 categories: linux
+password: 123
 ---
 
 

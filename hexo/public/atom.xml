@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.clz.cloud/"/>
-  <updated>2019-08-12T04:27:27.144Z</updated>
+  <updated>2019-08-13T08:26:48.997Z</updated>
   <id>https://blog.clz.cloud/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.clz.cloud/2019/08/12/p/"/>
     <id>https://blog.clz.cloud/2019/08/12/p/</id>
     <published>2019-08-12T04:22:00.000Z</published>
-    <updated>2019-08-12T04:27:27.144Z</updated>
+    <updated>2019-08-13T08:26:48.997Z</updated>
     
     <content type="html"><![CDATA[<h3 id="当使用源码编译安装python3的之后做软链接到-usr-bin-会出现问题-无法执行python命令"><a href="#当使用源码编译安装python3的之后做软链接到-usr-bin-会出现问题-无法执行python命令" class="headerlink" title="当使用源码编译安装python3的之后做软链接到/usr/bin,会出现问题,无法执行python命令,"></a>当使用源码编译安装<code>python3</code>的之后做软链接到/usr/bin,会出现问题,无法执行python命令,</h3><p>就是无法直接做软链接到用户的命令目录下.执行不了</p><p>解决方法:  在python的安装目录,对python3.6 这个脚本做软链接,然后再将做好的软链接拷贝到/usr/bin 下就能正常执行python3命令了</p><p>pip同理</p>]]></content>
     

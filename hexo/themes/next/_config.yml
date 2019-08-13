@@ -976,6 +976,7 @@ pace: true
 # pace-theme-big-counter | pace-theme-bounce | pace-theme-barber-shop | pace-theme-center-atom
 # pace-theme-center-circle | pace-theme-center-radar | pace-theme-center-simple | pace-theme-corner-indicator
 # pace-theme-fill-left | pace-theme-flash | pace-theme-loading-bar | pace-theme-mac-osx | pace-theme-minimal
+#pace_theme: pace-theme-bounce
 pace_theme: pace-theme-bounce
 
 # Canvas-nest
@@ -1190,8 +1191,6 @@ images: images
 
 daovoice: true
 daovoice_app_id: 449f2ce5
-
-
 
 
 

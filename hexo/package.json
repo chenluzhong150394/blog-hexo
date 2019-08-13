@@ -11,6 +11,7 @@
     "eslint": "^4.12.1",
     "gulp": "^3.9.1",
     "hexo": "^3.9.0",
+    "hexo-admin": "^2.3.0",
     "hexo-deployer-git": "^1.0.0",
     "hexo-generator-archive": "^0.1.5",
     "hexo-generator-baidu-sitemap": "^0.1.6",
@@ -31,7 +32,8 @@
     "live2d-widget-model-chitose": "^1.0.5",
     "live2d-widget-model-gf": "^1.0.5",
     "live2d-widget-model-haruto": "^1.0.5",
-    "live2d-widget-model-hijiki": "^1.0.5"
+    "live2d-widget-model-hijiki": "^1.0.5",
+    "minimatch": "^3.0.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
