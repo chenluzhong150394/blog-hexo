@@ -31,18 +31,6 @@ var _hmt = _hmt || [];
   <link rel="stylesheet" href="{{ pace_css_uri }}"/>
 {% endif %}
 
-
-<script>
-    (function(){
-        if('{{ page.password }}'){
-            if (prompt('请输入文章密码') !== '{{ page.password }}'){
-                alert('密码错误！');
-                history.back();
-            }
-        }
-    })();
-</script>
-
 {% if theme.disable_baidu_transformation %}
   <meta http-equiv="Cache-Control" content="no-transform"/>
   <meta http-equiv="Cache-Control" content="no-siteapp"/>

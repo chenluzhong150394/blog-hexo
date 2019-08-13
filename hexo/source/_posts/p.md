@@ -3,7 +3,10 @@ title: centos安装python3时候的坑
 date: 2019-08-12 12:22:00
 tags: linux
 categories: linux
+keywords: 博客文章密码
 password: 123
+abstract: 这是一篇加密的内容，没有密码不让看哦
+message:  公司机密，谅解谅解
 ---
 
 
