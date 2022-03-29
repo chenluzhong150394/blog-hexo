@@ -33,3 +33,8 @@ celery_app.control.revoke(task_id, terminate=True)
 写这篇文档的目的主要是帮助小伙伴们不要再踩这个坑了，也为celery提供一点文档补充吧。
 
 
+
+
+
+
+
