@@ -1,0 +1,4 @@
+.deploy_git
+
+hexo/node_modules/*
+hexo/public/*
