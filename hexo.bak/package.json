@@ -9,7 +9,7 @@
     "@babel/core": "^7.5.5",
     "babel-eslint": "^10.0.2",
     "eslint": "^4.12.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "hexo": "^3.9.0",
     "hexo-deployer-git": "^1.0.0",
     "hexo-generator-archive": "^0.1.5",
